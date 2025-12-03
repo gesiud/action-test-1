@@ -10,8 +10,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - run: |
-        echo "Hello world ${{github.actor}}"
-        echo "Drugi rzad" 
+          echo "Hello world ${{github.actor}}"
+          echo "Drugi rzad" 
       - name: Checkout
         uses: actions/checkout@v4.1
       - run: tree
