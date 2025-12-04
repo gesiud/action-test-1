@@ -14,7 +14,7 @@ jobs:
       - run: |
           echo "Hello world ${{github.actor}}"
           echo "Drugi rzad isekret ${{secrets.TEST_SECRET}} "
-          echo "Trzeci rząd isekret ${{vars.TEST_VAR}} "
+          echo "Trzeci rząd isekret ${{vars.TEST_VARS}} "
       - name: Checkout
         uses: actions/checkout@v6.0.1
       - run: tree
