@@ -13,7 +13,7 @@ jobs:
     steps:
       - run: |
           echo "Hello world ${{github.actor}}"
-          echo "Drugi rzad" 
+          echo "Drugi rzad isekret ${{vars.TEST_SECRET}} 
       - name: Checkout
         uses: actions/checkout@v6.0.1
       - run: tree
