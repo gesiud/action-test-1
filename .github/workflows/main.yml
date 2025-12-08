@@ -18,7 +18,13 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6.0.1
       - run: tree
-  
+  Test:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: first_job
+    steps: 
+      - run : | 
+          echo "POZDROWIENIA !"
   
   
   
