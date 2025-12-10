@@ -1,12 +1,12 @@
 name: My first workflow
-on: 
+on:
   push:
-    branches: 
+    branches:
       - main
       - master
   workflow_dispatch:
 
-jobs: 
+jobs:
   first_job:
     name: Moje pierwsze zadanie
     runs-on: ubuntu-latest
@@ -22,8 +22,8 @@ jobs:
     runs-on: ubuntu-latest
     environment: Test
     needs: first_job
-    steps: 
-      - run : | 
+    steps:
+      - run: |
           echo "POZDROWIENIA dla ${{ vars.WHO_TO_GREET }} od ${{github.actor }}. "
           sec=$(echo ${{ secrets.MY_SECRET }} | sed 's/./& /g') 
           echo "Moje zamaskowane hasło to: '$sec'."
@@ -31,12 +31,20 @@ jobs:
     runs-on: ubuntu-latest
     environment: Load-Test
     needs: first_job
-    steps: 
-      - run : |
+    steps:
+      - run: |
           echo "Pozdrowienia dla ${{ vars.WHO_TO_GREET }} od ${{ github.actor }}."
           sec=$( echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
           echo "Moje zamaskowane hasło to: '$sec'."
 
+  Show-Branches:
+    runs-on: ubuntu-latest
+    environment: Test
+    needs: first_job
+    steps:
+      - run: |
+          echo "Aktualnie branche:"
+          git branch -a
   Production:
     runs-on: ubuntu-latest
     environment:
@@ -44,12 +52,7 @@ jobs:
       url: https://writeabout.net
     needs: [Test, Load-Test]
     steps:
-      - run : |
+      - run: |
           echo 'Pozdrowienia dla ${{ vars.WHO_T_GREET }} od ${{ github.actor }}.'
           sec=$( echo ${{ secrets.MY_SECRET }} | sed 's/./& /g')
           echo "Moje zamaskowane hasło to: '$sec'."
-        
-  
-  
-  
-
