@@ -42,6 +42,9 @@ jobs:
     environment: Test
     needs: first_job
     steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - run: |
           echo "Aktualnie branche:"
           git branch -a
