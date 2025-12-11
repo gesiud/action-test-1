@@ -7,6 +7,7 @@ on: [pull_request, workflow_dispatch]
 jobs:
   job1:
     runs-on: ubuntu-latest
+    environment: Test
     permissions:
       contents: read
       pull-requests: write
@@ -15,6 +16,6 @@ jobs:
           echo "Przepływ pracy wyzwolony w odgałęzieniu '${{ github.ref }}'."
           echo "Przepływ pracy wyzwolony przez zdarzenie ${{ github.event_name }}."
           echo "Przepływ pracy wyzwolony przez aktora (użytkownika) ${{ github.actor }}."
-          echo  "Tytuł pull requesta to '${{ github.event.pull_request.title}}'"
+          echo  "Tytuł pull requesta to '${{ vars.VAR_TITLE }}'"
       - uses: actions/checkout@v4.1.0
       - uses: devops-actions/actionlint@v0.1.2
