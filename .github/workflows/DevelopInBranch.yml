@@ -1,0 +1,14 @@
+#przepływ pracy pokazujący jak tworzyć przepływy pracy w gałęziach
+
+name: Develop in branch
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    steps:
+      - run: |
+          echo "Przepływ pracy wyzwolony w odgałęzieniu '${{ github.ref }}'."
+          echo "Przepływ pracy wyzwolony przez zdarzenie ${{ github.event_name }}."
+          echo "Przepływ pracy wyzwolony przez aktora (użytkownika) ${{ github.actor }}."
