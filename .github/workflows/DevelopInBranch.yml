@@ -23,4 +23,4 @@ jobs:
           echo "::debug:: To jest komunikat debugowania."
           echo "::notice:: To jest komunikat powiadomienia."
           echo "::warning:: To jest komunikat ostrzegawczy."
-          echo: "::error:: To jest komunikat błędu."
+          echo "::error:: To jest komunikat błędu."
