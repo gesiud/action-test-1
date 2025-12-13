@@ -19,3 +19,8 @@ jobs:
           echo  "Tytuł pull requesta to .... :)"
       - uses: actions/checkout@v4.1.0
       - uses: devops-actions/actionlint@v0.1.2
+      - run: |
+          echo "::debug:: To jest komunikat debugowania."
+          echo "::notice:: To jest komunikat powiadomienia."
+          echo "::warning:: To jest komunikat ostrzegawczy."
+          echo: "::error:: To jest komunikat błędu."
