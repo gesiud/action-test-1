@@ -12,14 +12,16 @@ jobs:
       contents: read
       pull-requests: write
     steps:
-      - run: |
+      - name: Display Event Details
+        run: |
           echo "Przepływ pracy wyzwolony w odgałęzieniu '${{ github.ref }}'."
           echo "Przepływ pracy wyzwolony przez zdarzenie ${{ github.event_name }}."
           echo "Przepływ pracy wyzwolony przez aktora (użytkownika) ${{ github.actor }}."
           echo  "Tytuł pull requesta to .... :)"
       - uses: actions/checkout@v4.1.0
       - uses: devops-actions/actionlint@v0.1.2
-      - run: |
+      - name: Log Severity Levels
+        run: |
           echo "::debug:: To jest komunikat debugowania."
           echo "::notice:: To jest komunikat powiadomienia."
           echo "::warning:: To jest komunikat ostrzegawczy."
