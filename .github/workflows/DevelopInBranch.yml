@@ -16,6 +16,6 @@ jobs:
           echo "Przepływ pracy wyzwolony w odgałęzieniu '${{ github.ref }}'."
           echo "Przepływ pracy wyzwolony przez zdarzenie ${{ github.event_name }}."
           echo "Przepływ pracy wyzwolony przez aktora (użytkownika) ${{ github.actor }}."
-          echo  "Tytuł pull requesta to '${{ vars.VAR_TITLE }}'"
+          echo  "Tytuł pull requesta to .... :)"
       - uses: actions/checkout@v4.1.0
       - uses: devops-actions/actionlint@v0.1.2
