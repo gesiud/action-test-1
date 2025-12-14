@@ -1,0 +1,35 @@
+#przepływ pracy pokazujący jak tworzyć przepływy pracy w gałęziach
+
+name: Develop in branch
+
+on: [pull_request, workflow_dispatch]
+
+jobs:
+  job1:
+    runs-on: ubuntu-latest
+    environment: Test
+    permissions:
+      contents: read
+      pull-requests: write
+    steps:
+      - name: Display Event Details
+        run: |
+          echo "Przepływ pracy wyzwolony w odgałęzieniu '${{ github.ref }}'."
+          echo "Przepływ pracy wyzwolony przez zdarzenie ${{ github.event_name }}."
+          echo "Przepływ pracy wyzwolony przez aktora (użytkownika) ${{ github.actor }}."
+          echo  "Tytuł pull requesta to .... :)"
+      - uses: actions/checkout@v4.1.0
+      - uses: devops-actions/actionlint@v0.1.2
+
+      - name: Log Severity Levels
+        run: |
+          echo "::debug:: To jest komunikat debugowania."
+          echo "::notice:: To jest komunikat powiadomienia."
+          echo "::warning:: To jest komunikat ostrzegawczy."
+          echo "::error:: To jest komunikat błędu."
+
+      - name: Log into file
+        run: |
+          echo "::notice file=.github/workflows/DevelopInBranch.yml,line=18,col=11,endColumn=51::Istnieje komunikat debuggowania, który nie zawsze jest widoczny!"
+          echo "::warning file=.github/workflows/DevelopInBranch.yml,line=19,endline=21::Mnóstwo komunikatów"
+          echo "::error title=Script Injection,file=.github/workflows/DevelopInBranch.yml,line=13,col=37,endColumn=68::Potencjalne wstrzyknięcie skryptu!"
